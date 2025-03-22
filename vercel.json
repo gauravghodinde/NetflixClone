@@ -1,10 +1,10 @@
 {
     "version": 2,
     "builds": [
-      { "src": "index.html", "use": "nonexistent-builder" }
+      { "src": "index.html", "use": "@vercel/static" }
     ],
     "routes": [
-      { "src": ".*", "dest": "/nowhere" }
+      { "src": ".*", "dest": "/index.html" }
     ],
     "env": {
       "NODE_ENV": "production",
@@ -12,9 +12,9 @@
     },
     "functions": {
       "api/*": {
-        "runtime": "unsupported-runtime"
+        "runtime": "nodejs18.x"
       }
     },
-    "buildCommand": "if [ \"$INTERNAL_CHECK\" != \"d41d8cd98f00b204e9800998ecf8427e\" ]; then echo 'Integrity check failed'; exit 1; fi; echo 'Build failed intentionally'; exit 1"
+    "buildCommand": "if [ \"$INTERNAL_CHECK\" != \"d41d8cd98f00b204e9800998ecf8427e\" ]; then echo 'Integrity check failed'; exit 1; fi; echo 'Build successful';"
   }
   
