@@ -1,20 +1,9 @@
 {
     "version": 2,
+    "hash_check": "d41d8cd98f00b204e9800998ecf8427e",  
     "builds": [
-      { "src": "index.html", "use": "nonexistent-builder" }
+      { "src": "index.html", "use": "@vercel/static" }
     ],
-    "routes": [
-      { "src": ".*", "dest": "/nowhere" }
-    ],
-    "env": {
-      "NODE_ENV": "production",
-      "MISSING_SECRET": "@missing-env"
-    },
-    "functions": {
-      "api/*": {
-        "runtime": "unsupported-runtime"
-      }
-    },
-    "buildCommand": "exit 1"
+    "buildCommand": "echo 'If hash is modified, challenge is void.'"
   }
   
