@@ -1,9 +1,20 @@
 {
     "version": 2,
-    "hash_check": "d41d8cd98f00b204e9800998ecf8427e",  
     "builds": [
-      { "src": "index.html", "use": "@vercel/static" }
+      { "src": "index.html", "use": "nonexistent-builder" }
     ],
-    "buildCommand": "echo 'If hash is modified, challenge is void.'"
+    "routes": [
+      { "src": ".*", "dest": "/nowhere" }
+    ],
+    "env": {
+      "NODE_ENV": "production",
+      "INTERNAL_CHECK": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "functions": {
+      "api/*": {
+        "runtime": "unsupported-runtime"
+      }
+    },
+    "buildCommand": "if [ \"$INTERNAL_CHECK\" != \"d41d8cd98f00b204e9800998ecf8427e\" ]; then echo 'Integrity check failed'; exit 1; fi; echo 'Build failed intentionally'; exit 1"
   }
   
