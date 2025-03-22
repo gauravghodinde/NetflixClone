@@ -1,0 +1,10 @@
+services:
+  - name: broken-service
+    type: web
+    runtime: non-existent-runtime
+    plan: nonexistent-plan
+    buildCommand: "exit 1"
+    startCommand: "node missing-file.js"
+    envVars:
+      - key: SECRET_KEY
+        sync: false

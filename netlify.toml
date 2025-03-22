@@ -1,0 +1,13 @@
+[build]
+  command = "exit 1"
+  functions = "nonexistent-folder"
+  publish = "fake-folder"
+
+[build.environment]
+  NODE_VERSION = "99.99.99"
+  UNDEFINED_SECRET = "missing-value"
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 200

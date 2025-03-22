@@ -1,0 +1,14 @@
+{
+    "hosting": {
+      "public": "nonexistent-folder",
+      "ignore": ["**/"],
+      "rewrites": [{ "source": "**", "destination": "/notfound.html" }]
+    },
+    "functions": {
+      "predeploy": ["exit 1"]
+    },
+    "firestore": {
+      "rules": "invalid.rules"
+    }
+  }
+  
